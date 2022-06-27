@@ -4,20 +4,19 @@ mapboxgl.accessToken =
 const map = new mapboxgl.Map({
   container: "map",
   style: "mapbox://styles/heshamshawqy/cl444p0qq000514mx2f30mtom",
-  center: [2.20, 41.40],
+  center: [2.2, 41.4],
   zoom: 12,
   // bearing: -45,
 });
 
 map.on("load", () => {
-// Disable default box zooming.
-map.boxZoom.disable();
-// disable map zoom when using scroll
-map.scrollZoom.disable();
-// disable map rotation using right click + drag
-map.dragRotate.disable();
-}); 
-
+  // Disable default box zooming.
+  map.boxZoom.disable();
+  // disable map zoom when using scroll
+  map.scrollZoom.disable();
+  // disable map rotation using right click + drag
+  map.dragRotate.disable();
+});
 
 //01-INITIAL BUILDING MATERIAL RADAR CHART
 //-------------------------------------------
@@ -80,156 +79,148 @@ map.on("load", () => {
     chart: {
       id: "Mapchart",
       height: 400,
-      type: 'bar',
+      type: "bar",
       toolbar: {
         show: false,
       },
     },
 
     series: [
-    {
-      name: 'Percentage',
-      data: [0,0,0,0,0,0],
-    }
-  ],
+      {
+        name: "Percentage",
+        data: [0, 0, 0, 0, 0, 0],
+      },
+    ],
 
-  plotOptions: {
-    bar: {
-      horizontal: true,
-    }
-  },
-  colors: ['#56a356'],
-  dataLabels: {
-    style: {
-      colors: ['#012030']
+    plotOptions: {
+      bar: {
+        horizontal: true,
+      },
     },
-    formatter: function(val, opt) {
-      const goals =
-        opt.w.config.series[opt.seriesIndex].data[opt.dataPointIndex]
-          .goals
-  
-      if (goals && goals.length) {
-        return `${val} / ${goals[0].value}`
-      }
-      return val
-    }
-  },
-  legend: {
-    show: true,
-    showForSingleSeries: true,
-    customLegendItems: ['Material Percentage %'],
-    markers: {
-      fillColors: ['#56a356']
-    }
-  },
-  xaxis: {
-    min: 0,
-    max: 40,
-    labels: {
-    },
-    categories: ['Concrete','Brick','Stone','Glass','Metal','Wood'],
-    tickPlacement: 'on'
-  },
-  yaxis: {
-    labels: {
-      rotate: 0,
+    colors: ["#56a356"],
+    dataLabels: {
       style: {
-        colors: [],
-        fontSize: '9px',
-        fontFamily: 'Helvetica, Arial, sans-serif',
-        fontWeight: 400,
-        cssClass: 'apexcharts-xaxis-label',
+        colors: ["#012030"],
+      },
+      formatter: function (val, opt) {
+        const goals =
+          opt.w.config.series[opt.seriesIndex].data[opt.dataPointIndex].goals;
+
+        if (goals && goals.length) {
+          return `${val} / ${goals[0].value}`;
+        }
+        return val;
+      },
     },
+    legend: {
+      show: true,
+      showForSingleSeries: true,
+      customLegendItems: ["Material Percentage %"],
+      markers: {
+        fillColors: ["#56a356"],
+      },
     },
-  }
+    xaxis: {
+      min: 0,
+      max: 40,
+      labels: {},
+      categories: ["Concrete", "Brick", "Stone", "Glass", "Metal", "Wood"],
+      tickPlacement: "on",
+    },
+    yaxis: {
+      labels: {
+        rotate: 0,
+        style: {
+          colors: [],
+          fontSize: "9px",
+          fontFamily: "Helvetica, Arial, sans-serif",
+          fontWeight: 400,
+          cssClass: "apexcharts-xaxis-label",
+        },
+      },
+    },
   };
-  
+
   var chart = new ApexCharts(document.querySelector("#mapchart"), options);
   chart.render();
-  
-  });
+});
 
-  //01-INITIAL REGION MATERIAL RADAR CHART
+//01-INITIAL REGION MATERIAL RADAR CHART
 //-------------------------------------------
 map.on("load", () => {
   var options = {
     chart: {
       id: "Regionchart",
       height: 400,
-      type: 'bar',
+      type: "bar",
       toolbar: {
         show: false,
       },
     },
 
     series: [
-    {
-      name: 'Percentage',
-      data: [0,0,0,0,0,0],
-    }
-  ],
+      {
+        name: "Percentage",
+        data: [0, 0, 0, 0, 0, 0],
+      },
+    ],
 
-  plotOptions: {
-    bar: {
-      horizontal: true,
-    }
-  },
-  colors: ['#56a356'],
-  dataLabels: {
-    style: {
-      colors: ['#012030']
+    plotOptions: {
+      bar: {
+        horizontal: true,
+      },
     },
-    formatter: function(val, opt) {
-      const goals =
-        opt.w.config.series[opt.seriesIndex].data[opt.dataPointIndex]
-          .goals
-  
-      if (goals && goals.length) {
-        return `${val} / ${goals[0].value}`
-      }
-      return val
-    }
-  },
-  legend: {
-    show: true,
-    showForSingleSeries: true,
-    customLegendItems: ['Material Percentage %'],
-    markers: {
-      fillColors: ['#56a356']
-    }
-  },
-  xaxis: {
-    min: 0,
-    max: 40,
-    labels: {
-    },
-    categories: ['Concrete','Brick','Stone','Glass','Metal','Wood'],
-    tickPlacement: 'on'
-  },
-  yaxis: {
-    labels: {
-      rotate: 0,
+    colors: ["#56a356"],
+    dataLabels: {
       style: {
-        colors: [],
-        fontSize: '9px',
-        fontFamily: 'Helvetica, Arial, sans-serif',
-        fontWeight: 400,
-        cssClass: 'apexcharts-xaxis-label',
+        colors: ["#012030"],
+      },
+      formatter: function (val, opt) {
+        const goals =
+          opt.w.config.series[opt.seriesIndex].data[opt.dataPointIndex].goals;
+
+        if (goals && goals.length) {
+          return `${val} / ${goals[0].value}`;
+        }
+        return val;
+      },
     },
+    legend: {
+      show: true,
+      showForSingleSeries: true,
+      customLegendItems: ["Material Percentage %"],
+      markers: {
+        fillColors: ["#56a356"],
+      },
     },
-  }
+    xaxis: {
+      min: 0,
+      max: 40,
+      labels: {},
+      categories: ["Concrete", "Brick", "Stone", "Glass", "Metal", "Wood"],
+      tickPlacement: "on",
+    },
+    yaxis: {
+      labels: {
+        rotate: 0,
+        style: {
+          colors: [],
+          fontSize: "9px",
+          fontFamily: "Helvetica, Arial, sans-serif",
+          fontWeight: 400,
+          cssClass: "apexcharts-xaxis-label",
+        },
+      },
+    },
   };
-  
+
   var chart = new ApexCharts(document.querySelector("#Regionchart"), options);
   chart.render();
-  
-  });
-
+});
 
 //02-GEOJSON LAYERS - DIFFERENT SCENARIOS
 //-------------------------------------------
 map.on("load", () => {
-
   // place map labels on top of layers
   //----------------------------------------------------
   const layers = map.getStyle().layers;
@@ -255,8 +246,8 @@ map.on("load", () => {
     // url: "mapbox://heshamshawqy.a8akk9ft",
   });
   map.addLayer(
-      // how to fix duplicated buildings id
-      //https://github.com/mapbox/mapbox-gl-js/issues/7038
+    // how to fix duplicated buildings id
+    //https://github.com/mapbox/mapbox-gl-js/issues/7038
     {
       id: "b-id",
       type: "fill-extrusion",
@@ -280,25 +271,25 @@ map.on("load", () => {
   );
 
   document.getElementById("defaultOpen").addEventListener("click", () => {
-        //remove layers if they exist
-        if (map.getLayer("2dBuildings-highlighted")) {
-          map.removeLayer("2dBuildings-highlighted");
-          }
-      
-          if (map.getSource("BCN")) {
-          map.removeSource("BCN");
-          }
-      
-        hoveredStateId = null;
-        
-        //fly to the original camera parameters
-          map.getCanvas().style.cursor = "grab";
-          map.flyTo({
-            center: [2.20, 41.40],
-            zoom: 12,
-            pitch: 0,
-            bearing: 0,
-          });
+    //remove layers if they exist
+    if (map.getLayer("2dBuildings-highlighted")) {
+      map.removeLayer("2dBuildings-highlighted");
+    }
+
+    if (map.getSource("BCN")) {
+      map.removeSource("BCN");
+    }
+
+    hoveredStateId = null;
+
+    //fly to the original camera parameters
+    map.getCanvas().style.cursor = "grab";
+    map.flyTo({
+      center: [2.2, 41.4],
+      zoom: 12,
+      pitch: 0,
+      bearing: 0,
+    });
   });
   // MAPPING SCENARIOS
   // 01-MAP
@@ -309,118 +300,116 @@ map.on("load", () => {
 
     //remove layers if they exist
     if (map.getLayer("2dBuildings-highlighted")) {
-    map.removeLayer("2dBuildings-highlighted");
+      map.removeLayer("2dBuildings-highlighted");
     }
 
     if (map.getSource("BCN")) {
-    map.removeSource("BCN");
+      map.removeSource("BCN");
     }
 
-  hoveredStateId = null;
-  
-  //fly to the original camera parameters
+    hoveredStateId = null;
+
+    //fly to the original camera parameters
     map.getCanvas().style.cursor = "grab";
     map.flyTo({
-      center: [2.20, 41.40],
+      center: [2.2, 41.4],
       zoom: 12,
       pitch: 0,
       bearing: 0,
     });
-  // disable map zoom when using scroll
-  map.scrollZoom.enable();
-  // disable map rotation using right click + drag
-  map.dragRotate.disable();
-
-
-  //unique features function to remove duplicated mapbox features
-  function getUniqueFeatures(array, comparatorProperty) {
-    var existingFeatureKeys = {};
-    var uniqueFeatures = array.filter(function (el) {
-      if (existingFeatureKeys[el.properties[comparatorProperty]]) {
-        return false;
-      } else {
-        existingFeatureKeys[el.properties[comparatorProperty]] = true;
-        return true;
-      }
-    });
-
-    return uniqueFeatures;
-  }
-//using query source features to extract visible properties
-  var Mfeatures = map.querySourceFeatures("combined", {
-    sourceLayer: "b-id",
-  });
-
-  // console.log(Mfeatures);
-  var uniqueFeatures = getUniqueFeatures(Mfeatures, "id");
-  // console.log(uniqueFeatures);
-  let i = 0;
-  let Mconcrete = [];
-  let Mbrick = [];
-  let Mstone = [];
-  let Mglass = [];
-  let Mmetal = [];
-  let Mwood = [];
-  let Mid = [];
-  let len = uniqueFeatures.length;
-  for (; i < len; i++) {
-    Mconcrete.push(uniqueFeatures[i].properties.concrete);
-    Mbrick.push(uniqueFeatures[i].properties.bricks);
-    Mstone.push(uniqueFeatures[i].properties.stone);
-    Mglass.push(uniqueFeatures[i].properties.glass);
-    Mmetal.push(uniqueFeatures[i].properties.metal);
-    Mwood.push(uniqueFeatures[i].properties.wood);
-    Mid.push(uniqueFeatures[i].properties.id);
-  } 
-  let count = (Mconcrete.filter( Boolean )).length;
-  const Tconcrete = (Mconcrete.filter( Boolean )).reduce((a, b) => a + b, 0);
-  const Tbrick = (Mbrick.filter( Boolean )).reduce((a, b) => a + b, 0);
-  const Tstone = (Mstone.filter( Boolean )).reduce((a, b) => a + b, 0);
-  const Tglass = (Mglass.filter( Boolean )).reduce((a, b) => a + b, 0);
-  const Tmetal = (Mmetal.filter( Boolean )).reduce((a, b) => a + b, 0);
-  const Twood = (Mwood.filter( Boolean )).reduce((a, b) => a + b, 0);
-
-  const Pconcrete = Math.round(((Tconcrete/len)*100)*100)/100;
-  const Pbrick = Math.round(((Tbrick/len)*100)*100)/100;
-  const Pstone = Math.round(((Tstone/len)*100)*100)/100;
-  const Pglass = Math.round(((Tglass/len)*100)*100)/100;
-  const Pmetal = Math.round(((Tmetal/len)*100)*100)/100;
-  const Pwood = Math.round(((Twood/len)*100)*100)/100;
-  console.log(Pconcrete)
-  console.log(Pbrick)
-  console.log(Pstone)
-  console.log(Pglass)
-  console.log(Pmetal)
-  console.log(Pwood)
-
-  ApexCharts.exec("Mapchart", "updateSeries", [
-    {
-      data: [Pconcrete, Pbrick, Pstone, Pglass, Pmetal, Pwood],
-    },
-  ]);
-
-  document.getElementById("Bcount").innerHTML = "Buildings Count =   "+69961;
-
-});
-  // 02-REGION
-  //----------------------------------------------------
-  document.getElementById("regionfilter").addEventListener("click", () => {
-    hoveredStateId = null;
-    map.boxZoom.disable ();
-
-      //fly to the original camera parameters
-      map.getCanvas().style.cursor = "grab";
-      map.flyTo({
-        center: [2.14, 41.40],
-        zoom: 16,
-        pitch: 0,
-        bearing: 0,
-      });
     // disable map zoom when using scroll
     map.scrollZoom.enable();
     // disable map rotation using right click + drag
     map.dragRotate.disable();
 
+    //unique features function to remove duplicated mapbox features
+    function getUniqueFeatures(array, comparatorProperty) {
+      var existingFeatureKeys = {};
+      var uniqueFeatures = array.filter(function (el) {
+        if (existingFeatureKeys[el.properties[comparatorProperty]]) {
+          return false;
+        } else {
+          existingFeatureKeys[el.properties[comparatorProperty]] = true;
+          return true;
+        }
+      });
+
+      return uniqueFeatures;
+    }
+    //using query source features to extract visible properties
+    var Mfeatures = map.querySourceFeatures("combined", {
+      sourceLayer: "b-id",
+    });
+
+    // console.log(Mfeatures);
+    var uniqueFeatures = getUniqueFeatures(Mfeatures, "id");
+    // console.log(uniqueFeatures);
+    let i = 0;
+    let Mconcrete = [];
+    let Mbrick = [];
+    let Mstone = [];
+    let Mglass = [];
+    let Mmetal = [];
+    let Mwood = [];
+    let Mid = [];
+    let len = uniqueFeatures.length;
+    for (; i < len; i++) {
+      Mconcrete.push(uniqueFeatures[i].properties.concrete);
+      Mbrick.push(uniqueFeatures[i].properties.bricks);
+      Mstone.push(uniqueFeatures[i].properties.stone);
+      Mglass.push(uniqueFeatures[i].properties.glass);
+      Mmetal.push(uniqueFeatures[i].properties.metal);
+      Mwood.push(uniqueFeatures[i].properties.wood);
+      Mid.push(uniqueFeatures[i].properties.id);
+    }
+    let count = Mconcrete.filter(Boolean).length;
+    const Tconcrete = Mconcrete.filter(Boolean).reduce((a, b) => a + b, 0);
+    const Tbrick = Mbrick.filter(Boolean).reduce((a, b) => a + b, 0);
+    const Tstone = Mstone.filter(Boolean).reduce((a, b) => a + b, 0);
+    const Tglass = Mglass.filter(Boolean).reduce((a, b) => a + b, 0);
+    const Tmetal = Mmetal.filter(Boolean).reduce((a, b) => a + b, 0);
+    const Twood = Mwood.filter(Boolean).reduce((a, b) => a + b, 0);
+
+    const Pconcrete = Math.round((Tconcrete / len) * 100 * 100) / 100;
+    const Pbrick = Math.round((Tbrick / len) * 100 * 100) / 100;
+    const Pstone = Math.round((Tstone / len) * 100 * 100) / 100;
+    const Pglass = Math.round((Tglass / len) * 100 * 100) / 100;
+    const Pmetal = Math.round((Tmetal / len) * 100 * 100) / 100;
+    const Pwood = Math.round((Twood / len) * 100 * 100) / 100;
+    console.log(Pconcrete);
+    console.log(Pbrick);
+    console.log(Pstone);
+    console.log(Pglass);
+    console.log(Pmetal);
+    console.log(Pwood);
+
+    ApexCharts.exec("Mapchart", "updateSeries", [
+      {
+        data: [Pconcrete, Pbrick, Pstone, Pglass, Pmetal, Pwood],
+      },
+    ]);
+
+    document.getElementById("Bcount").innerHTML =
+      "Buildings Count =   " + 69961;
+  });
+  // 02-REGION
+  //----------------------------------------------------
+  document.getElementById("regionfilter").addEventListener("click", () => {
+    hoveredStateId = null;
+    map.boxZoom.disable();
+
+    //fly to the original camera parameters
+    map.getCanvas().style.cursor = "grab";
+    map.flyTo({
+      center: [2.168495492531364, 41.405588646382554],
+      zoom: 16,
+      pitch: 0,
+      bearing: 0,
+    });
+    // disable map zoom when using scroll
+    map.scrollZoom.enable();
+    // disable map rotation using right click + drag
+    map.dragRotate.disable();
 
     // window.alert(
     //   "Hold Shift and drag the map to query features for multiple buildings"
@@ -430,9 +419,7 @@ map.on("load", () => {
       ["boolean", ["feature-state", "hover"], false],
       "#96d96a",
       "#525d70",
-    ],
-    
-    );
+    ]);
     // map.setLayoutProperty("b-id", "visibility", "none");
     const canvas = map.getCanvasContainer();
 
@@ -460,16 +447,16 @@ map.on("load", () => {
 
     map.addLayer(
       {
-      id: "2dBuildings-highlighted",
-      type: "fill",
-      source: "BCN",
-      paint: {
-        "fill-color": "#96d96a",
-        // 'fill-opacity': 0.75
+        id: "2dBuildings-highlighted",
+        type: "fill",
+        source: "BCN",
+        paint: {
+          "fill-color": "#96d96a",
+          // 'fill-opacity': 0.75
+        },
+        filter: ["in", "id", ""],
       },
-      filter: ["in", "id", ""],
-    },
-    firstSymbolId
+      firstSymbolId
     ); // Place polygon under these labels.
 
     // Set `true` to dispatch the event before other functions
@@ -568,44 +555,46 @@ map.on("load", () => {
         // console.log(Mfeatures);
         // console.log(uniqueFeatures);
 
-        const Mconcrete = features.map((feature) => feature.properties.concrete);
+        const Mconcrete = features.map(
+          (feature) => feature.properties.concrete
+        );
         const Mbrick = features.map((feature) => feature.properties.bricks);
         const Mstone = features.map((feature) => feature.properties.stone);
         const Mglass = features.map((feature) => feature.properties.glass);
         const Mmetal = features.map((feature) => feature.properties.metal);
         const Mwood = features.map((feature) => feature.properties.wood);
 
-        console.log(Mconcrete)
+        console.log(Mconcrete);
         let Rcount = fips.length;
-        const Tconcrete = (Mconcrete.filter( Boolean )).reduce((a, b) => a + b, 0);
-        const Tbrick = (Mbrick.filter( Boolean )).reduce((a, b) => a + b, 0);
-        const Tstone = (Mstone.filter( Boolean )).reduce((a, b) => a + b, 0);
-        const Tglass = (Mglass.filter( Boolean )).reduce((a, b) => a + b, 0);
-        const Tmetal = (Mmetal.filter( Boolean )).reduce((a, b) => a + b, 0);
-        const Twood = (Mwood.filter( Boolean )).reduce((a, b) => a + b, 0);
+        const Tconcrete = Mconcrete.filter(Boolean).reduce((a, b) => a + b, 0);
+        const Tbrick = Mbrick.filter(Boolean).reduce((a, b) => a + b, 0);
+        const Tstone = Mstone.filter(Boolean).reduce((a, b) => a + b, 0);
+        const Tglass = Mglass.filter(Boolean).reduce((a, b) => a + b, 0);
+        const Tmetal = Mmetal.filter(Boolean).reduce((a, b) => a + b, 0);
+        const Twood = Mwood.filter(Boolean).reduce((a, b) => a + b, 0);
 
-        const Pconcrete = Math.round(((Tconcrete/Rcount)*100)*100)/100;
-        const Pbrick = Math.round(((Tbrick/Rcount)*100)*100)/100;
-        const Pstone = Math.round(((Tstone/Rcount)*100)*100)/100;
-        const Pglass = Math.round(((Tglass/Rcount)*100)*100)/100;
-        const Pmetal = Math.round(((Tmetal/Rcount)*100)*100)/100;  
-        const Pwood = Math.round(((Twood/Rcount)*100)*100)/100;
-        console.log(Pconcrete)
-        console.log(Pbrick)
-        console.log(Pstone)
-        console.log(Pglass)
-        console.log(Pmetal)
-        console.log(Pwood)
+        const Pconcrete = Math.round((Tconcrete / Rcount) * 100 * 100) / 100;
+        const Pbrick = Math.round((Tbrick / Rcount) * 100 * 100) / 100;
+        const Pstone = Math.round((Tstone / Rcount) * 100 * 100) / 100;
+        const Pglass = Math.round((Tglass / Rcount) * 100 * 100) / 100;
+        const Pmetal = Math.round((Tmetal / Rcount) * 100 * 100) / 100;
+        const Pwood = Math.round((Twood / Rcount) * 100 * 100) / 100;
+        console.log(Pconcrete);
+        console.log(Pbrick);
+        console.log(Pstone);
+        console.log(Pglass);
+        console.log(Pmetal);
+        console.log(Pwood);
 
         ApexCharts.exec("Regionchart", "updateSeries", [
           {
             data: [Pconcrete, Pbrick, Pstone, Pglass, Pmetal, Pwood],
           },
         ]);
-      
-        document.getElementById("BRcount").innerHTML = "Buildings Count =   "+Rcount;
-      }
 
+        document.getElementById("BRcount").innerHTML =
+          "Buildings Count =   " + Rcount;
+      }
 
       map.dragPan.enable();
     }
@@ -623,7 +612,7 @@ map.on("load", () => {
   //----------------------------------------------------
   document.getElementById("buildingfilter").addEventListener("click", () => {
     map.flyTo({
-      center: [2.14, 41.40],
+      center: [2.168495492531364, 41.405588646382554],
       zoom: 17,
       pitch: 50,
       bearing: 0,
@@ -634,27 +623,50 @@ map.on("load", () => {
     // disable map rotation using right click + drag
     map.dragRotate.enable();
 
-  let hoveredFeatureId = null;
-  map.setPaintProperty("b-id", "fill-extrusion-color", [
-    "case",
-    ["boolean", ["feature-state", "hover"], false],
-    "#96d96a",
-    "#525d70",
-  ],
-  
-  );
-  if (map.getLayer("2dBuildings-highlighted")) {
-    map.removeLayer("2dBuildings-highlighted");
-}
+    let hoveredFeatureId = null;
+    map.setPaintProperty("b-id", "fill-extrusion-color", [
+      "case",
+      ["boolean", ["feature-state", "hover"], false],
+      "#96d96a",
+      "#525d70",
+    ]);
+    if (map.getLayer("2dBuildings-highlighted")) {
+      map.removeLayer("2dBuildings-highlighted");
+    }
 
-  if (map.getSource("BCN")) {
-    map.removeSource("BCN");
-}
+    if (map.getSource("BCN")) {
+      map.removeSource("BCN");
+    }
 
-  // When the user moves their mouse over the state-fill layer, we'll update the
-  // feature state for the feature under the mouse  .
-  map.on("mousemove", "b-id", (e) => {
-    if (e.features.length > 0) {
+    // When the user moves their mouse over the state-fill layer, we'll update the
+    // feature state for the feature under the mouse  .
+    map.on("mousemove", "b-id", (e) => {
+      if (e.features.length > 0) {
+        if (hoveredFeatureId !== null) {
+          map.setFeatureState(
+            {
+              source: "combined",
+              // sourceLayer: "combined",
+              id: hoveredFeatureId,
+            },
+            { hover: false }
+          );
+        }
+        hoveredFeatureId = e.features[0].id;
+        map.setFeatureState(
+          {
+            source: "combined",
+            // sourceLayer: "combined",
+            id: hoveredFeatureId,
+          },
+          { hover: true }
+        );
+      }
+    });
+
+    // When the mouse leaves the state-fill layer, update the feature state of the
+    // previously hovered feature.
+    map.on("mouseleave", "b-id", () => {
       if (hoveredFeatureId !== null) {
         map.setFeatureState(
           {
@@ -665,81 +677,53 @@ map.on("load", () => {
           { hover: false }
         );
       }
-      hoveredFeatureId = e.features[0].id;
-      map.setFeatureState(
+    });
+
+    // Change the cursor to a pointer when the mouse is over the places layer.
+    map.on("mouseenter", "b-id", () => {
+      map.getCanvas().style.cursor = "pointer";
+    });
+
+    // Change it back to a pointer when it leaves.
+    map.on("mouseleave", "b-id", () => {
+      map.getCanvas().style.cursor = "";
+    });
+
+    // show feature on click
+    map.on("click", "b-id", (e) => {
+      document.getElementById("type").innerHTML =
+        "<p class='info-box'><b>Building Typology</b></p>" +
+        e.features[0].properties.currentUse;
+      document.getElementById("age").innerHTML =
+        "<p class='info-box'><b>Building Age</b></p>" +
+        e.features[0].properties.bld_age;
+      document.getElementById("simg").innerHTML =
+        "<img src=" +
+        e.features[0].properties.documentLi +
+        " class='f-img' ></img>";
+      var m_concrete = Math.round(e.features[0].properties.concrete * 100);
+      //-----
+      var m_brick = Math.round(e.features[0].properties.bricks * 100);
+      //-----
+      var m_stone = Math.round(e.features[0].properties.stone * 100);
+      //-----
+      var m_glass = Math.round(e.features[0].properties.glass * 100);
+      //-----
+      var m_metal = Math.round(e.features[0].properties.metal * 100);
+      //-----
+      var m_wood = Math.round(e.features[0].properties.wood * 100);
+      //-----
+
+      ApexCharts.exec("Mchart", "updateSeries", [
         {
-          source: "combined",
-          // sourceLayer: "combined",
-          id: hoveredFeatureId,
+          data: [m_concrete, m_brick, m_stone, m_glass, m_metal, m_wood],
         },
-        { hover: true }
-      );
-    }
+      ]);
+    });
+
+    hoveredStateId = null;
   });
-
-  // When the mouse leaves the state-fill layer, update the feature state of the
-  // previously hovered feature.
-  map.on("mouseleave", "b-id", () => {
-    if (hoveredFeatureId !== null) {
-      map.setFeatureState(
-        {
-          source: "combined",
-          // sourceLayer: "combined",
-          id: hoveredFeatureId,
-        },
-        { hover: false }
-      );
-    }
-  });
-
-  // Change the cursor to a pointer when the mouse is over the places layer.
-  map.on("mouseenter", "b-id", () => {
-    map.getCanvas().style.cursor = "pointer";
-  });
-
-  // Change it back to a pointer when it leaves.
-  map.on("mouseleave", "b-id", () => {
-    map.getCanvas().style.cursor = "";
-  });
-
-  // show feature on click
-  map.on("click", "b-id", (e) => {
-    document.getElementById("type").innerHTML =
-      "<p class='info-box'><b>Building Typology</b></p>" +
-      e.features[0].properties.currentUse;
-    document.getElementById("age").innerHTML =
-      "<p class='info-box'><b>Building Age</b></p>" +
-      e.features[0].properties.bld_age;
-    document.getElementById("simg").innerHTML =
-      "<img src=" +
-      e.features[0].properties.documentLi +
-      " class='f-img' ></img>";
-    var m_concrete = Math.round(e.features[0].properties.concrete * 100);
-    //-----
-    var m_brick = Math.round(e.features[0].properties.bricks * 100);
-    //-----
-    var m_stone = Math.round(e.features[0].properties.stone * 100);
-    //-----
-    var m_glass = Math.round(e.features[0].properties.glass * 100);
-    //-----
-    var m_metal = Math.round(e.features[0].properties.metal * 100);
-    //-----
-    var m_wood = Math.round(e.features[0].properties.wood * 100);
-    //-----
-
-    ApexCharts.exec("Mchart", "updateSeries", [
-      {
-        data: [m_concrete, m_brick, m_stone, m_glass, m_metal, m_wood],
-
-      },
-    ]);
-  });
-
-  hoveredStateId = null;
 });
-
-});
-
 
 //03-MATERIAL LAYERS
 //https://docs.mapbox.com/mapbox-gl-js/example/color-switcher/
